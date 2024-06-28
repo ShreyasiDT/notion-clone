@@ -11,7 +11,20 @@ const font = Poppins({
 export const Logo = () => {
   return (
     <div className="hidden md:flex items-center gap-x-2">
-      <Image src="/logoBright1.png" height="40" width="40" alt="Logo" />
+      <Image
+        src="/logoBright1.png"
+        height="40"
+        width="40"
+        alt="Logo"
+        className="dark:hidden"
+      />
+      <Image
+        src="/logoDark1.png"
+        height="40"
+        width="40"
+        alt="Logo"
+        className="hidden dark:block"
+      />
       <p className={cn("font-semibold", font.className)}>Notely</p>
     </div>
   );
