@@ -2,21 +2,21 @@
 
 import { api } from "@/convex/_generated/api";
 import { Doc, Id } from "@/convex/_generated/dataModel";
-import { Item } from "@radix-ui/react-dropdown-menu";
+import { Item } from "./item";
 import { useQuery } from "convex/react";
 import { useParams } from "next/navigation";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
 import { FileIcon } from "lucide-react";
 
-interface DocumentList {
+interface DocumentListProps {
   parentDocumentId?: Id<"documents">;
   level?: number;
   data?: Doc<"documents">[];
 }
-export const DocumentListProps = ({
+export const DocumentList = ({
   parentDocumentId,
   level = 0,
 }: DocumentListProps) => {
@@ -24,7 +24,7 @@ export const DocumentListProps = ({
   const router = useRouter();
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
 
-  const onExpand = (document: string) => {
+  const onExpand = (documentId: string) => {
     setExpanded((prevExpanded) => ({
       ...prevExpanded,
       [documentId]: !prevExpanded[documentId],
@@ -66,7 +66,7 @@ export const DocumentListProps = ({
         No pages inside
       </p>
       {documents.map((document) => (
-        <div key={document.id}>
+        <div key={document._id}>
           <Item
             id={document._id}
             onClick={() => onRedirect(document._id)}
