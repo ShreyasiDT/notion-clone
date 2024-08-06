@@ -3,13 +3,14 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ImageIcon, X } from "lucide-react";
+import { FunctionSquareIcon, ImageIcon, X } from "lucide-react";
 import { useCoverImage } from "@/hooks/use-cover-image";
 import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { useParams } from "next/navigation";
 import { Id } from "@/convex/_generated/dataModel";
 import { useEdgeStore } from "@/lib/edgestore";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface CoverImageProps {
   url?: string;
@@ -46,7 +47,7 @@ export const Cover = ({ url, preview }: CoverImageProps) => {
         absolute bottom-5 right-5 flex items-center gap-x-2"
         >
           <Button
-            onClick={()=>coverImage.onReplace(url)}
+            onClick={() => coverImage.onReplace(url)}
             className="text-muted-foreground text-xs"
             variant="outline"
             size="sm"
@@ -67,4 +68,8 @@ export const Cover = ({ url, preview }: CoverImageProps) => {
       )}
     </div>
   );
+};
+
+Cover.Skeleton = function CoverSkeleton() {
+  return <Skeleton className="w-full h-[12vh]" />;
 };
