@@ -1,8 +1,7 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Heading } from "/app/(marketing)/_components/heading.tsx";
-import { Heroes } from "/app/(marketing)/_components/heroes.tsx";
-import { Footer } from "/app/(marketing)/_components/footer";
+import { Footer } from "./_components/footer";
+import { Heading } from "./_components/heading";
+
+import { Heroes } from "./_components/heroes";
 import { Navbar } from "./_components/navbar";
 const MarketingPage = () => {
   return (

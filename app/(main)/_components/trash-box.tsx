@@ -65,7 +65,7 @@ export const TrashBox = () => {
         <Search className="h-4 w-4" />
         <Input
           value={search}
-          onChange={(e) => setSearching(e.target.value)}
+          onChange={(e) => setSearch(e.target.value)}
           className="h-7 px-2 focus-visible:ring-transparent bg-secondary"
           placeholder="Filter by page title..."
         />

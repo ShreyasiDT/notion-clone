@@ -23,7 +23,7 @@ export const IconPicker = ({
 
   const themeMap = {
     dark: Theme.DARK,
-    light: "Theme.LIGHT",
+    light: Theme.LIGHT,
   };
 
   const theme = themeMap[currentTheme];
