@@ -26,7 +26,7 @@ interface ItemProps {
   active?: boolean;
   expanded?: boolean;
   isSearch?: boolean;
-  level?: string;
+  level?: number;
   onExpand?: () => void;
   label: string;
   onClick?: () => void;
